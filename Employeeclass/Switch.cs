@@ -11,37 +11,53 @@ namespace Employeeclass
         public void Employee()
         {
 
-            int workinghours = 0;
-            const int wagesperhours = 20;
             const int present = 2;
             const int parttime = 1;
-            const int workingdays = 2;
+            int wagesperhours = 20;
+            const int workingday = 20;
+            const int maxworkinghours = 100;
+
+
+            double totalwage = 0;
             int daliy_wage = 0;
-            int totalempwage = 0;
-            for (int day = 0; day < workingdays; day++)
+            int emphrs = 0;
+
+            int totalworkingdays = 0;
+            int totalemphours = 0;
+
+            while (totalemphours <= maxworkinghours && totalworkingdays < workingday)
             {
+                totalworkingdays++;
                 Random random = new Random();
                 int employee = random.Next(0, 3);
+
+
                 switch (employee)
                 {
                     case parttime:
-                        workinghours = 4;
+
+                        const int parttimeperhours = 4;
                         Console.WriteLine("parttimer");
+                        daliy_wage = parttimeperhours * wagesperhours;
+                        totalwage += daliy_wage;
+                        Console.WriteLine("daliy employee wage :" + daliy_wage);
                         break;
                     case present:
-                        workinghours = 8;
+                        const int fulldayperhours = 8;
                         Console.WriteLine("present");
+                        daliy_wage = fulldayperhours * wagesperhours;
+                        totalwage += daliy_wage;
+                        Console.WriteLine("daliy employee wage :" + daliy_wage);
                         break;
                     default:
-                        workinghours = 0;
-                        Console.WriteLine("absent");
+                        Console.WriteLine("Absent");
                         break;
                 }
-                daliy_wage = workinghours * wagesperhours;
-                totalempwage += daliy_wage;
-                Console.WriteLine("emp wage: " + daliy_wage);
+                totalemphours += emphrs;
+                Console.WriteLine("days :" + totalworkingdays);
+
             }
-            Console.WriteLine("Total emp wage: " + totalempwage);
+            Console.WriteLine("total wage: " + totalwage);
+        }
         }
     }
-}

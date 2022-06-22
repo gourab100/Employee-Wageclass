@@ -8,7 +8,7 @@ namespace Employeeclass
 {
     public class Switch
     {
-        public void Employee()
+        public static int Employee()
         {
 
             const int present = 2;
@@ -18,7 +18,7 @@ namespace Employeeclass
             const int maxworkinghours = 100;
 
 
-            double totalwage = 0;
+            int totalwage = 0;
             int daliy_wage = 0;
             int emphrs = 0;
 
@@ -57,7 +57,12 @@ namespace Employeeclass
                 Console.WriteLine("days :" + totalworkingdays);
 
             }
-            Console.WriteLine("total wage: " + totalwage);
+            return totalwage;
+        }
+
+        static void Main(string[] args)
+        {
+            Employee();
         }
         }
     }
